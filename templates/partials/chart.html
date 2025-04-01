@@ -1,0 +1,7 @@
+<!-- chart.html -->
+<div id="chart"></div>
+<script>
+  var graphData = {{ plotly_json | safe }};
+  var config = {displayModeBar: false};  // Hide the modebar
+  Plotly.newPlot('chart', graphData.data, graphData.layout, config);
+</script>

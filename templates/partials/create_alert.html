@@ -1,0 +1,50 @@
+<form
+  hx-post="/alerts"
+  hx-target="#alerts-list"
+  hx-swap="outerHTML"
+  hx-on::after-request="htmx.trigger('#chart-container', 'new-alert')"
+  class="container p-4 bg-light rounded shadow-sm"
+>
+  <h4 class="mb-3">Create Alert</h4>
+
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Query</label>
+    <input type="text" name="query" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Threshold</label>
+    <input
+      type="number"
+      step="any"
+      name="threshold"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Duration</label>
+    <input type="text" name="duration" value="5m" class="form-control" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Severity</label>
+    <select name="severity" class="form-select">
+      <option value="critical">Critical</option>
+      <option value="warning">Warning</option>
+      <option value="info">Info</option>
+    </select>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary px-4 py-2">
+      Create Alert
+    </button>
+  </div>
+</form>

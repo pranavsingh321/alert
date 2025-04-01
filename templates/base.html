@@ -50,16 +50,17 @@
     ></script>
   </head>
   <body>
-    <h1>Dogs</h1>
-    <div hx-trigger="revealed, selection-change from:body" hx-get="/form"></div>
-    <table hx-get="/rows" hx-target="tbody" hx-trigger="revealed">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Breed</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <h1>Alerts Management</h1>
+    <div id="alert-form">{% include 'partials/create_alert.html' %}</div>
+    <div id="alerts-list" hx-get="/alerts" hx-trigger="load">
+      <!-- Alerts will be loaded here -->
+    </div>
+    <div
+      id="chart-container"
+      hx-get="/chart"
+      hx-trigger="load, new-alert from:body"
+    >
+      <!-- Chart will be loaded here -->
+    </div>
   </body>
 </html>
