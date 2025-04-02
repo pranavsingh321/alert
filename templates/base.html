@@ -1,67 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alert</title>
 
-    <!-- Favicon (PNG) -->
-    <link
-      rel="icon"
-      href="{{url_for('static', path='img/favicon.png')}}"
-      type="image/png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alert</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', path='css/bootstrap.min.css')}}"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
+  <!-- Favicon (PNG) -->
+  <link rel="icon" href="{{url_for('static', path='img/favicon.png')}}" type="image/png" />
 
-    <!-- Custom CSS -->
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', path='css/style.css')}}"
-      integrity="sha384-B8b5YGzOa3w/cf6fcJhScw2wiYiJyeEYPMD3miLe+vC6I8r1dgrKU3uO6r1F3H62"
-      crossorigin="anonymous"
-    />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{url_for('static', path='css/bootstrap.min.css')}}"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
-    <!-- HTMX JS -->
-    <script
-      src="{{url_for('static', path='js/htmx.min.js')}}"
-      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{url_for('static', path='css/style.css')}}" />
 
-    <!-- Plotly JS -->
-    <script
-      src="{{url_for('static', path='js/plotly.min.js')}}"
-      integrity="sha384-8cEu0XVLh4s92OG4Ua4ZS75MN//b+0KqyCrhQqaXgHMVHnKC3DNVhwUyH5spa1J2"
-      crossorigin="anonymous"
-    ></script>
+  <!-- HTMX JS -->
+  <script src="{{url_for('static', path='js/htmx.min.js')}}"
+    integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+    crossorigin="anonymous"></script>
 
-    <!-- Custom JS (if you have this file) -->
-    <script
-      src="{{url_for('static', path='js/script.js')}}"
-      integrity="sha384-dJiI5Hjptehcm7oySoMJKxyL945DdCH9rYFItG+tRWAWLumIKhLKVcF6syn/XynQ"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <h1>Alerts Management</h1>
-    <div id="alert-form">{% include 'partials/create_alert.html' %}</div>
-    <div id="alerts-list" hx-get="/alerts" hx-trigger="load">
-      <!-- Alerts will be loaded here -->
-    </div>
-    <div
-      id="chart-container"
-      hx-get="/chart"
-      hx-trigger="load, new-alert from:body"
-      hx-swap="innerHTML"
-    >
-      <!-- Chart will be loaded here -->
-    </div>
-  </body>
+  <!-- Plotly JS -->
+  <script src="{{url_for('static', path='js/plotly.min.js')}}"
+    integrity="sha384-8cEu0XVLh4s92OG4Ua4ZS75MN//b+0KqyCrhQqaXgHMVHnKC3DNVhwUyH5spa1J2"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom JS  -->
+  <script src="{{url_for('static', path='js/script.js')}}" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <h1>Alerts Management</h1>
+  <div id="alert-form">{% include 'partials/create_alert.html' %}</div>
+  <div id="alerts-list" hx-get="/alerts" hx-trigger="load">
+    <!-- Alerts will be loaded here -->
+  </div>
+  <div id="chart-container" hx-get="/chart" hx-trigger="load, new-alert from:body" hx-swap="innerHTML">
+    <!-- Chart will be loaded here -->
+  </div>
+</body>
+
 </html>
