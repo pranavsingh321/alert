@@ -1,1 +1,13 @@
+.bg-danger {
+  background-color: #dc3545 !important;
+}
 
+
+.bg-warning {
+  background-color: #fcba03 !important;
+}
+
+
+.bg-info {
+  background-color: #031cfc !important;
+}
