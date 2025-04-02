@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>URL</th>
+  </tr>
+  {% for ds in datasources %}
+  <tr>
+    <td>{{ ds.id }}</td>
+    <td>{{ ds.name }}</td>
+    <td>{{ ds.url }}</td>
+  </tr>
+  {% endfor %}
+</table>

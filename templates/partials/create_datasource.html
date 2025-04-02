@@ -1,0 +1,7 @@
+<form hx-post="/datasources" hx-target="#datasource-list" hx-swap="outerHTML">
+  <label>Name: <input type="text" name="name" required /></label>
+  <label>URL: <input type="url" name="url" required /></label>
+  <button type="submit">Add Datasource</button>
+</form>
+
+<div id="datasource-list" hx-get="/datasources" hx-trigger="load"></div>
