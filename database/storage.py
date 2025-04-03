@@ -1,5 +1,5 @@
-from models.schema import DataSource
-from models.schema import User
+from model.schema import User, DataSource, Alert
+from datetime import datetime
 from core.security import hash_password
 
 datasources = []
@@ -37,9 +37,6 @@ def get_user(username: str) -> User | None:
             return user
     return None
 
-
-from models.schemas import Alert
-from datetime import datetime
 
 alerts = []
 alert_id = 1
