@@ -1,7 +1,32 @@
-<form hx-post="/datasources" hx-target="#datasource-list" hx-swap="outerHTML">
-  <label>Name: <input type="text" name="name" required /></label>
-  <label>URL: <input type="url" name="url" required /></label>
-  <button type="submit">Add Datasource</button>
-</form>
-
 <div id="datasource-list" hx-get="/datasources" hx-trigger="load"></div>
+
+<div class="container mt-5">
+  <h2 class="text-center">Manage Datasources</h2>
+
+  <div class="card p-4 mt-3">
+    <form
+      hx-post="/datasources"
+      hx-target="#datasource-list"
+      hx-swap="outerHTML"
+    >
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">URL</label>
+        <input type="url" name="url" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">
+        Add Datasource
+      </button>
+    </form>
+  </div>
+
+  <div
+    id="datasource-list"
+    hx-get="/datasources"
+    hx-trigger="load"
+    class="mt-4"
+  ></div>
+</div>

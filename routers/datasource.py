@@ -7,20 +7,20 @@ router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 
-@router.get("/datasources", response_class=HTMLResponse)
+@router.get("/datasource", response_class=HTMLResponse)
 async def list_datasources(request: Request):
     return templates.TemplateResponse(
-        "partials/datasources.html",
+        "partials/datasource_list.html",
         {"request": request, "datasources": get_datasources()},
     )
 
 
-@router.post("/datasources")
+@router.post("/datasource")
 async def create_datasource(
     request: Request, name: str = Form(...), url: str = Form(...)
 ):
     add_datasource(name, url)
     return templates.TemplateResponse(
-        "partials/datasources.html",
+        "partials/datasource_create.html",
         {"request": request, "datasources": get_datasources()},
     )

@@ -1,14 +1,18 @@
-<table class="table">
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>URL</th>
-  </tr>
-  {% for ds in datasources %}
-  <tr>
-    <td>{{ ds.id }}</td>
-    <td>{{ ds.name }}</td>
-    <td>{{ ds.url }}</td>
-  </tr>
-  {% endfor %}
+<table class="table table-striped mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ds in datasources %}
+    <tr>
+      <td>{{ ds.id }}</td>
+      <td>{{ ds.name }}</td>
+      <td>{{ ds.url }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
 </table>

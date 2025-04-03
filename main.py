@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from routers import alert, chart
+from routers import alert, chart, auth, datasource
 
 app = FastAPI()
 
@@ -20,3 +20,5 @@ async def root(request: Request):
 # Load routers
 app.include_router(alert.router)
 app.include_router(chart.router)
+app.include_router(auth.router)
+app.include_router(datasource.router)

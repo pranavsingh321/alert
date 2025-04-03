@@ -10,7 +10,7 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+    return templates.TemplateResponse("partials/login.html", {"request": request})
 
 
 @router.post("/login")
@@ -31,3 +31,8 @@ async def register(username: str = Form(...), password: str = Form(...)):
         return {"error": "User already exists"}
     add_user(username, password)
     return {"message": "User registered successfully"}
+
+
+@app.get("/register", response_class=HTMLResponse)
+async def register_page(request: Request):
+    return templates.TemplateResponse("partials/register.html", {"request": request})
