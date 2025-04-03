@@ -33,6 +33,6 @@ async def register(username: str = Form(...), password: str = Form(...)):
     return {"message": "User registered successfully"}
 
 
-@app.get("/register", response_class=HTMLResponse)
+@router.get("/register", response_class=HTMLResponse)
 async def register_page(request: Request):
     return templates.TemplateResponse("partials/register.html", {"request": request})
