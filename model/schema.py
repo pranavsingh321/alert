@@ -16,8 +16,9 @@ class UserCreate(BaseModel):
     password: str
 
 
-class User(UserCreate):
+class User(BaseModel):
     id: int
+    username: str
     hashed_password: str
 
 
